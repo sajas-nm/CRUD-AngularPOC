@@ -1,5 +1,5 @@
 # Live Demo
-[crud-angular-poc.sajas-nm.vercel.app ](crud-angular-poc.sajas-nm.vercel.app)
+[see demo here ](crud-angular-poc.sajas-nm.vercel.app)
 
 # Angular CRUD With Fake Api
 
