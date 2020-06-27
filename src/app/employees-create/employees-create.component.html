@@ -1,0 +1,100 @@
+<section class="hero is-light">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-half">
+          <h1 class="title">
+            Create New Employee
+          </h1>
+        </div>
+        <div class="column is-half">
+          <a
+            class="button is-primary is-pulled-right"
+            routerLink="/"
+            routerLinkActive="active"
+          >
+            Back
+          </a>
+        </div>
+      </div>
+
+      <div class="columns is-centered">
+        <div class="column is-half">
+          <div class="bd-notification is-primary">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+              <div class="box">
+                <div class="field">
+                  <label class="label">Id</label>
+                  <div class="control">
+                    <input
+                      class="input"
+                      type="number"
+                      id="IDBook"
+                      placeholder="Enter Name"
+                      formControlName="IDBook"
+                    />
+                  </div>
+                  <div
+                    *ngIf="submitted && f.IDBook.errors"
+                    class="help is-danger"
+                  >
+                    <div *ngIf="f.IDBook.errors.required">
+                      Book ID is required
+                    </div>
+                  </div>
+                </div>
+                <div class="field">
+                  <label class="label">FirstName</label>
+                  <div class="control">
+                    <input
+                      class="input"
+                      type="text"
+                      id="FirstName"
+                      placeholder="Enter FirstName"
+                      formControlName="FirstName"
+                    />
+                  </div>
+
+                  <div
+                    *ngIf="submitted && f.FirstName.errors"
+                    class="help is-danger"
+                  >
+                    <div *ngIf="f.FirstName.errors.required">
+                      First Name is required
+                    </div>
+                  </div>
+                </div>
+                <div class="field">
+                  <label class="label">LastName</label>
+                  <div class="control">
+                    <input
+                      class="input"
+                      type="text"
+                      id="LastName"
+                      placeholder="Enter LastName"
+                      formControlName="LastName"
+                    />
+                  </div>
+                  <div
+                    *ngIf="submitted && f.LastName.errors"
+                    class="help is-danger"
+                  >
+                    <div *ngIf="f.LastName.errors.required">
+                      Last Name is required
+                    </div>
+                  </div>
+                </div>
+                <div class="field has-text-right">
+                  <button class="button is-primary mb-2 mt-2" type="submit">
+                    Add Employee
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- (click)="submitForm()" -->

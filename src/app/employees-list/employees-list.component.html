@@ -1,0 +1,84 @@
+<section class="hero is-light">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-half">
+          <h1 class="title">
+            Employees
+          </h1>
+        </div>
+        <div class="column is-half">
+          <a
+            class="button is-primary is-pulled-right"
+            routerLink="/create"
+            routerLinkActive="active"
+          >
+            <strong>Add Employee</strong>
+          </a>
+        </div>
+      </div>
+
+      <div class="columns is-centered">
+        <div class="column is-half">
+          <div class="bd-notification is-primary">
+            <div *ngIf="isLoad" class="has-text-centered">
+              <div class="button is-loading">Loading</div>
+            </div>
+            <div
+              *ngIf="Employees && Employees.length == 0 && !isLoad"
+              class="has-text-centered"
+            >
+              <h3>
+                Thre is no data to display !
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <table class="table is-fullwidth">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>BookId</th>
+              <th>FirstName</th>
+              <th>Lastname</th>
+              <th style="width: 50px;">
+                Action
+              </th>
+            </tr>
+          </thead>
+
+          <tbody *ngIf="Employees && Employees.length !== 0 && !isLoad">
+            <tr *ngFor="let emp of Employees">
+              <td>{{ emp.ID }}</td>
+              <td>{{ emp.IDBook }}</td>
+              <td>{{ emp.FirstName }}</td>
+              <td>{{ emp.LastName }}</td>
+              <!-- <td>{{ item.name }}</td>
+              <td>{{ emp.age }}</td>
+              <td>{{ emp.salary }}</td> -->
+              <td style="display: flex;">
+                <button
+                  type="button"
+                  class="button is-warning is-outlined is-small mr-2"
+                  routerLink="/edit/{{ emp.ID }}"
+                >
+                  Edit
+                </button>
+                <button
+                  type="button"
+                  class="button is-danger is-outlined is-small"
+                  (click)="delete(emp)"
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- </div> -->
